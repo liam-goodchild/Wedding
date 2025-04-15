@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Custom styles for elegant theme */
+        /* Styles remain the same */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #F8F5F2; /* Soft off-white background */
@@ -20,290 +20,489 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif; /* Elegant serif for headings */
         }
-        .charcoal-text {
-            color: #333333; /* Dark charcoal for emphasis */
-        }
-        .subtle-bg {
-             background-color: #FFFFFF; /* White for card backgrounds */
-        }
-        .accent-border {
-            border-color: #D3CFC7; /* Subtle border color */
-        }
+        .charcoal-text { color: #333333; }
+        .subtle-bg { background-color: #FFFFFF; }
+        .accent-border { border-color: #D3CFC7; }
         .btn-primary {
-            background-color: #555555; /* Charcoal button */
-            color: white;
+            background-color: #555555; color: white;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            letter-spacing: 0.5px;
-            font-weight: 500; /* Medium weight for button text */
+            letter-spacing: 0.5px; font-weight: 500;
         }
         .btn-primary:hover {
-            background-color: #333333; /* Darker charcoal on hover */
-            transform: translateY(-1px); /* Subtle lift effect */
+            background-color: #333333; transform: translateY(-1px);
         }
-        /* Form input styling */
         .form-input {
-             border: 1px solid #D3CFC7; /* Subtle border */
-             background-color: #fff; /* White background */
-             transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #D3CFC7; background-color: #fff;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
         .form-input:focus {
-             outline: none;
-             border-color: #888; /* Darker border on focus */
-             box-shadow: 0 0 0 2px rgba(85, 85, 85, 0.1); /* Subtle focus shadow */
+            outline: none; border-color: #888;
+            box-shadow: 0 0 0 2px rgba(85, 85, 85, 0.1);
         }
-        /* Radio button styling */
         input[type="radio"] {
-            appearance: none;
-            border: 1px solid #D3CFC7;
-            border-radius: 50%;
-            width: 1.25em;
-            height: 1.25em;
-            margin-right: 0.5em;
-            position: relative;
-            top: 0.2em;
-            cursor: pointer;
+            appearance: none; border: 1px solid #D3CFC7; border-radius: 50%;
+            width: 1.25em; height: 1.25em; margin-right: 0.5em;
+            position: relative; top: 0.2em; cursor: pointer;
             transition: border-color 0.3s ease;
         }
-        input[type="radio"]:checked {
-            border-color: #555555; /* Charcoal border when checked */
-        }
+        input[type="radio"]:checked { border-color: #555555; }
         input[type="radio"]:checked::after {
-            content: '';
-            display: block;
-            width: 0.75em;
-            height: 0.75em;
-            border-radius: 50%;
-            background-color: #555555; /* Charcoal fill */
-            position: absolute;
-            top: 50%;
-            left: 50%;
+            content: ''; display: block; width: 0.75em; height: 0.75em;
+            border-radius: 50%; background-color: #555555;
+            position: absolute; top: 50%; left: 50%;
             transform: translate(-50%, -50%);
         }
         input[type="radio"]:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(85, 85, 85, 0.1);
+            outline: none; box-shadow: 0 0 0 2px rgba(85, 85, 85, 0.1);
         }
-
-        /* Simple fade-in animation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .fade-in {
-            animation: fadeIn 1s ease-out forwards;
-            opacity: 0; /* Start hidden */
-        }
-        /* Add subtle animation delays for sections */
+        .fade-in { animation: fadeIn 1s ease-out forwards; opacity: 0; }
         .fade-in-delay-1 { animation-delay: 0.2s; }
         .fade-in-delay-2 { animation-delay: 0.4s; }
         .fade-in-delay-3 { animation-delay: 0.6s; }
         .fade-in-delay-4 { animation-delay: 0.8s; }
 
-        /* Ensure images cover their container */
-        .venue-image {
-            width: 100%;
-            height: 280px; /* Slightly taller images */
-            object-fit: cover;
-        }
+        .venue-image { width: 100%; height: 280px; object-fit: cover; }
         .hero-image {
-            width: 100%;
-            height: 40vh; /* Adjust height as needed */
-            max-height: 450px;
-            object-fit: cover;
-            display: block;
-            background-color: #F8F5F2; /* Background color for loading */
+            width: 100%; height: 40vh; max-height: 450px;
+            object-fit: cover; display: block; background-color: #F8F5F2;
+        }
+
+        /* Tab Styles */
+        .tab-link {
+            cursor: pointer; padding: 10px 16px; /* Adjusted padding slightly */
+            border-bottom: 3px solid transparent;
+            transition: border-color 0.3s ease, color 0.3s ease;
+            color: #666; font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            text-align: center; /* Center text */
+        }
+        .tab-link.active {
+            border-color: #555555;
+            color: #333333;
+        }
+        .tab-content { display: none; /* Hide content by default */ }
+        .tab-content.active { display: block; /* Show active content */ }
+
+        /* Countdown Styles */
+        #countdown {
+            font-family: 'Playfair Display', serif;
+            text-align: center; margin-top: -3.5rem; margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: #4a4a4a;
+            letter-spacing: 1px;
+        }
+        #countdown span {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        #countdown span div {
+            font-size: 0.9rem;
+             font-family: 'Inter', sans-serif;
+            color: #666;
+            margin-top: -5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <header class="text-center py-16 md:py-24 fade-in">
+    <header class="text-center py-16 md:py-20 fade-in">
         <h1 class="text-5xl md:text-7xl font-normal charcoal-text mb-3 tracking-tight">Liam & Ola</h1>
-        <p class="text-xl md:text-2xl text-gray-600 mb-5">Are getting married!</p>
-        <p class="text-2xl md:text-3xl font-medium charcoal-text tracking-wide">August 28, 2026</p>
+        <p class="text-lg md:text-xl mt-3 charcoal-text">August 28th, 2026</p>
     </header>
 
-    <section class="mb-16 md:mb-24 fade-in fade-in-delay-1">
-         <img src="https://images.unsplash.com/photo-1529641484336-ef35148bab06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
-             alt="Elegant background for wedding website"
-             class="hero-image"
-             onerror="this.onerror=null; this.src='https://placehold.co/1200x500/F8F5F2/AAAAAA?text=Image+Unavailable'">
-    </section>
+    <section id="countdown" class="fade-in fade-in-delay-1"> </section>
 
-    <main class="container mx-auto px-6 md:px-4 py-10 max-w-5xl">
+    <nav class="container mx-auto px-6 md:px-4 max-w-5xl mb-12 md:mb-16 fade-in fade-in-delay-2">
+        <div class="flex flex-wrap justify-center border-b accent-border">
+            <a class="tab-link active" data-tab="venue">Venue</a>
+            <a class="tab-link" data-tab="rsvp-page">RSVP</a>
+            <a class="tab-link" data-tab="local-amenities">Local Amenities</a>
+            <a class="tab-link" data-tab="photos">Photos</a>
+            <a class="tab-link" data-tab="confirmed-guests">Confirmed Guests</a>
+        </div>
+    </nav>
 
-        <section id="location" class="mb-16 md:mb-24 fade-in fade-in-delay-2">
-            <h2 class="text-4xl md:text-5xl font-normal text-center charcoal-text mb-10 tracking-tight">The Venue</h2>
-            <div class="text-center text-lg text-gray-700 mb-12 leading-relaxed">
-                <p class="mb-2">Join us at the beautiful</p>
-                <p class="font-semibold text-xl charcoal-text">[Venue Name]</p>
-                <p class="mt-1">[Venue Address Line 1]</p>
-                <p>[City, Postcode]</p>
-                <a href="[Link to Google Maps/Venue Website]" target="_blank" class="text-blue-700 hover:text-blue-900 underline mt-3 inline-block">Get Directions</a>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                <img src="https://placehold.co/600x400/e0e0e0/555555?text=Venue+1" alt="Venue Picture 1" class="rounded-md shadow-sm venue-image" onerror="this.src='https://placehold.co/600x400/e0e0e0/AAAAAA?text=Image+not+found'">
-                <img src="https://placehold.co/600x400/e0e0e0/555555?text=Venue+2" alt="Venue Picture 2" class="rounded-md shadow-sm venue-image" onerror="this.src='https://placehold.co/600x400/e0e0e0/AAAAAA?text=Image+not+found'">
-                <img src="https://placehold.co/600x400/e0e0e0/555555?text=Venue+3" alt="Venue Picture 3" class="rounded-md shadow-sm venue-image" onerror="this.src='https://placehold.co/600x400/e0e0e0/AAAAAA?text=Image+not+found'">
-            </div>
-        </section>
+    <main class="container mx-auto px-6 md:px-4 py-5 max-w-5xl">
 
-        <section id="rsvp" class="mb-16 md:mb-24 fade-in fade-in-delay-3">
-            <h2 class="text-4xl md:text-5xl font-normal text-center charcoal-text mb-10 tracking-tight">Kindly Respond</h2>
-             <p class="text-center text-lg text-gray-700 mb-10">Please let us know if you can celebrate with us by [RSVP Deadline Date].</p>
-            <form id="rsvp-form" class="max-w-xl mx-auto subtle-bg p-8 md:p-10 rounded-lg shadow-md border accent-border">
-                <div id="form-message" class="mb-6 text-center" aria-live="polite"></div> <div class="mb-6">
-                    <label for="name" class="block text-gray-700 font-medium mb-2">Full Name(s)</label>
-                    <input type="text" id="name" name="name" required class="w-full px-4 py-2.5 form-input rounded-md" placeholder="Your name(s)">
+        <div id="tab-content-container">
+
+            <section id="venue" class="tab-content active fade-in mb-16 md:mb-24">
+                <h2 class="text-4xl md:text-5xl font-normal text-center charcoal-text mb-10 tracking-tight">The Venue</h2>
+                <div class="text-center text-lg text-gray-700 mb-12 leading-relaxed">
+                    <p class="font-semibold text-xl charcoal-text">Berela Wedding House</p>
+                    <p class="mt-1">Młyńska 58, Kobylnica, 76-251</p>
+                    <a href="https://www.google.com/maps/dir//Dom+Weselny+Berela,+M%C5%82y%C5%84ska+58,+76-251+Kobylnica,+Poland/@54.4334811,17.0132647,17z/data=!4m17!1m7!3m6!1s0x46fe1b12de6a20ed:0xc042651ebded9110!2sDom+Weselny+Berela!8m2!3d54.433478!4d17.015845!16s%2Fg%2F11h3c4v4hl!4m8!1m0!1m5!1m1!1s0x46fe1b12de6a20ed:0xc042651ebded9110!2m2!1d17.015845!2d54.433478!3e3?entry=ttu&g_ep=EgoyMDI1MDQwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="text-blue-700 hover:text-blue-900 underline mt-3 inline-block">Get Directions</a>
                 </div>
-
-                <div class="mb-6">
-                    <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-                    <input type="email" id="email" name="email" required class="w-full px-4 py-2.5 form-input rounded-md" placeholder="your.email@example.com">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                    <img src="assets/berela garden.jpeg" alt="Venue Picture 1" class="rounded-md shadow-sm venue-image">
+                    <img src="assets/berela outside.jpeg" alt="Venue Picture 2" class="rounded-md shadow-sm venue-image">
+                    <img src="assets/berela hall.jpeg" alt="Venue Picture 3" class="rounded-md shadow-sm venue-image">
                 </div>
+            </section>
 
-                <fieldset class="mb-6">
-                    <legend class="block text-gray-700 font-medium mb-3">Will you be attending?</legend>
-                    <div class="flex items-center space-x-8">
-                        <label class="flex items-center cursor-pointer text-gray-700">
-                            <input type="radio" name="attending" value="yes" required> Yes, with pleasure!
-                        </label>
-                        <label class="flex items-center cursor-pointer text-gray-700">
-                            <input type="radio" name="attending" value="no" required> Regretfully decline
-                        </label>
+            <section id="rsvp-page" class="tab-content fade-in mb-16 md:mb-24">
+                <h2 class="text-4xl md:text-5xl font-normal text-center charcoal-text mb-10 tracking-tight">Kindly Respond</h2>
+                <p class="text-center text-lg text-gray-700 mb-10">Please let us know if you can celebrate with us by July 12th 2025.</p>
+                <form id="rsvp-form" class="max-w-xl mx-auto subtle-bg p-8 md:p-10 rounded-lg shadow-md border accent-border">
+                    <div id="form-message" class="mb-6 text-center" aria-live="polite"></div>
+                    <div class="mb-6">
+                        <label for="name" class="block text-gray-700 font-medium mb-2">Full Name(s)</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-2.5 form-input rounded-md" placeholder="Your name(s)">
                     </div>
-                </fieldset>
+                    <fieldset class="mb-6">
+                        <legend class="block text-gray-700 font-medium mb-3">Will you be attending?</legend>
+                        <div class="flex items-center space-x-8">
+                            <label class="flex items-center cursor-pointer text-gray-700">
+                                <input type="radio" name="attending" value="yes" required> Yes, with pleasure!
+                            </label>
+                            <label class="flex items-center cursor-pointer text-gray-700">
+                                <input type="radio" name="attending" value="no" required> Regretfully decline
+                            </label>
+                        </div>
+                    </fieldset>
+                    <div class="mb-6 guests-input-container">
+                        <label for="guests" class="block text-gray-700 font-medium mb-2">Number of Guests Attending</label>
+                        <input type="number" id="guests" name="guests" min="1" value="1" required class="w-full px-4 py-2.5 form-input rounded-md" placeholder="Including yourself">
+                         <p class="text-xs text-gray-500 mt-1">Please include yourself in the count.</p>
+                    </div>
+                    <div class="mb-8">
+                        <label for="message" class="block text-gray-700 font-medium mb-2">Message (Optional)</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2.5 form-input rounded-md" placeholder="Any dietary requirements or well wishes?"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn-primary px-10 py-3 rounded-md font-semibold shadow-sm hover:shadow-md">Send RSVP</button>
+                    </div>
+                </form>
+            </section>
 
-                <div class="mb-6">
-                    <label for="guests" class="block text-gray-700 font-medium mb-2">Number of Guests Attending</label>
-                    <input type="number" id="guests" name="guests" min="0" value="1" required class="w-full px-4 py-2.5 form-input rounded-md" placeholder="Including yourself">
-                     <p class="text-xs text-gray-500 mt-1">Please include yourself in the count.</p>
+             <div id="confirmed-guests" class="tab-content fade-in">
+                <h2 class="text-4xl md:text-5xl font-normal text-center charcoal-text mb-10 tracking-tight">Confirmed Guests</h2>
+                <div id="guest-list-container" class="max-w-2xl mx-auto text-center text-lg text-gray-700 mb-12 leading-relaxed">
+                    <p>Loading guest list...</p>
+                    <ul id="guest-list-ul" class="list-none text-left mt-6 space-y-2">
+                        </ul>
                 </div>
+                 <p class="text-center text-sm text-gray-500">Only guests who have RSVP'd 'Yes' are shown.</p>
+            </div>
 
-                <div class="mb-8">
-                    <label for="message" class="block text-gray-700 font-medium mb-2">Message (Optional)</label>
-                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2.5 form-input rounded-md" placeholder="Any dietary requirements or well wishes?"></textarea>
+            <div id="local-amenities" class="tab-content fade-in">
+                 <h2 class="text-4xl md:text-5xl font-normal text-center charcoal-text mb-10 tracking-tight">Local Amenities</h2>
+                 <div class="max-w-3xl mx-auto text-lg text-gray-700 mb-12 leading-relaxed space-y-6">
+                    <p class="text-center">If you're travelling, here are a few suggestions for nearby accommodation and amenities.</p>
+                    <h3 class="text-3xl font-medium charcoal-text mb-4 pt-4 text-center">Accommodation</h3>
+                    <div>
+                        <h4 class="text-2xl font-semibold charcoal-text mb-2">Apartament Morska</h4>
+                        <p>A spacious apartment only a 10 minute drive from the venue.</p>
+                        <a href="https://www.airbnb.co.uk/rooms/902144186221397958?adults=2&check_in=2026-08-26&check_out=2026-08-29&search_mode=regular_search&source_impression_id=p3_1744737330_P359dsYjGeH-BhDD&previous_page_section_name=1000&federated_search_id=eed6b175-2aba-44b5-87c9-a3365dc5ae1c" target="_blank" class="text-blue-700 hover:text-blue-900 underline mt-1 inline-block">View Details</a>
+                    </div>
+                     <div>
+                        <h4 class="text-2xl font-semibold charcoal-text mb-2">Prestige Studio Słupsk</h4>
+                        <p>A luxurious apartment only a 10 minute drive from the venue.</p>
+                        <a href="https://www.airbnb.co.uk/rooms/1191452623298824788?adults=2&check_in=2026-08-26&check_out=2026-08-29&search_mode=regular_search&source_impression_id=p3_1744737406_P38efxEtT91kh--m&previous_page_section_name=1000&federated_search_id=65ab24bf-a3ce-40d6-b019-a4da3e521256" target="_blank" class="text-blue-700 hover:text-blue-900 underline mt-1 inline-block">View Details</a>
+                    </div>
+                     <p class="text-center pt-4">You can also search on <a href="https://www.airbnb.co.uk/s/Kobylnica--Poland/homes" target="_blank" class="text-blue-700 hover:text-blue-900 underline">Airbnb</a> or <a href="https://www.booking.com/searchresults.html?ss=Kobylnica,+Pomerania,+Poland" target="_blank" class="text-blue-700 hover:text-blue-900 underline">Booking.com</a> for more options.</p>
+
+                     <h3 class="text-3xl font-medium charcoal-text mb-4 pt-6 text-center">Other Nearby Places</h3>
+                     <div>
+                        <h4 class="text-2xl font-semibold charcoal-text mb-2">[Restaurant/Cafe Name]</h4>
+                        <p>Description (e.g., "Great spot for breakfast near Hotel X").</p>
+                        <a href="[Link to Google Maps/Website]" target="_blank" class="text-blue-700 hover:text-blue-900 underline mt-1 inline-block">View Details</a>
+                    </div>
+                     <div>
+                        <h4 class="text-2xl font-semibold charcoal-text mb-2">[Local Attraction/Shop]</h4>
+                        <p>Description (e.g., "Nice park for a walk", "Pharmacy").</p>
+                        <a href="[Link to Google Maps/Website]" target="_blank" class="text-blue-700 hover:text-blue-900 underline mt-1 inline-block">View Details</a>
+                    </div>
+
+                 </div>
+            </div>
+
+            <div id="photos" class="tab-content fade-in">
+                 <h2 class="text-4xl md:text-5xl font-normal text-center charcoal-text mb-10 tracking-tight">Wedding Photos</h2>
+                 <div class="max-w-2xl mx-auto text-center text-lg text-gray-700 mb-12 leading-relaxed">
+                    <p>We're so excited to share photos from our special day with you!</p>
+                    <p class="mt-4">Please check back here after the wedding.</p>
+                    <div id="photo-gallery" class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4">
+                         </div>
                 </div>
+            </div>
 
-                <div class="text-center">
-                    <button type="submit" class="btn-primary px-10 py-3 rounded-md font-semibold shadow-sm hover:shadow-md">Send RSVP</button>
-                </div>
-            </form>
-        </section>
-
-    </main>
+        </div> </main>
 
     <footer class="text-center py-10 mt-16 border-t accent-border fade-in fade-in-delay-4">
-        <p class="text-gray-600">&copy; <span id="current-year"></span> Liam & Ola. With love.</p>
+        <p class="text-gray-600">© <span id="current-year"></span> Liam & Ola. With love.</p>
     </footer>
 
     <script>
-        // Set current year in footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // Handle RSVP Form Submission
+        // --- Constants and Variables ---
+        const weddingDate = new Date("2026-08-28T14:00:00");
+        const countdownElement = document.getElementById('countdown');
         const rsvpForm = document.getElementById('rsvp-form');
         const formMessage = document.getElementById('form-message');
         const guestsInput = document.getElementById('guests');
+        const guestsInputContainer = document.querySelector('.guests-input-container');
         const attendingRadios = document.querySelectorAll('input[name="attending"]');
+        const tabs = document.querySelectorAll('.tab-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const guestListContainer = document.getElementById('guest-list-container'); // Inside #confirmed-guests div
+        const guestListUl = document.getElementById('guest-list-ul'); // Inside #confirmed-guests div
 
-        // Function to toggle guests input based on attendance
+        // Azure Function URLs - REPLACE THESE!
+        const POST_RSVP_FUNCTION_URL = 'YOUR_POST_RSVP_FUNCTION_URL';
+        const GET_GUESTS_FUNCTION_URL = 'YOUR_GET_GUESTS_FUNCTION_URL';
+
+        // --- Countdown Timer ---
+        function updateCountdown() {
+            const now = new Date();
+            const diff = weddingDate.getTime() - now.getTime();
+
+            if (diff <= 0) {
+                countdownElement.innerHTML = "The Big Day is Here (or has passed)!";
+                clearInterval(countdownInterval);
+                return;
+            }
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `
+                <span>${days} <div>Days</div></span>
+                <span>${hours} <div>Hours</div></span>
+                <span>${minutes} <div>Mins</div></span>
+                <span>${seconds} <div>Secs</div></span>
+            `;
+        }
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // --- Tab Switching Logic ---
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetTabId = tab.getAttribute('data-tab');
+
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                tabContents.forEach(content => {
+                    if (content.id === targetTabId) {
+                        content.classList.add('active');
+                        // **UPDATED**: Check if switching to the confirmed guests tab
+                        if (targetTabId === 'confirmed-guests') {
+                            fetchAndDisplayGuestList();
+                        }
+                    } else {
+                        content.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // --- Guest List Logic ---
+        async function fetchAndDisplayGuestList() {
+            // Ensure elements exist before manipulating
+            if (!guestListUl || !guestListContainer) {
+                console.error("Guest list elements not found!");
+                return;
+            }
+
+            guestListUl.innerHTML = '';
+            const loadingP = guestListContainer.querySelector('p');
+            if (loadingP) loadingP.textContent = 'Loading guest list...';
+
+
+             if (GET_GUESTS_FUNCTION_URL === 'YOUR_GET_GUESTS_FUNCTION_URL') {
+                 if (loadingP) loadingP.textContent = 'Guest list feature not configured.';
+                 console.warn("Azure Function URL for getting guests is not set.");
+                 return;
+             }
+
+            try {
+                const response = await fetch(GET_GUESTS_FUNCTION_URL);
+                 if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const guests = await response.json();
+
+                if (loadingP) loadingP.style.display = 'none';
+
+                if (guests && guests.length > 0) {
+                     guests.forEach(guest => {
+                         if (guest.attending === 'yes' || guest.attending === true || (typeof guest.guests === 'number' && guest.guests > 0)) {
+                            const li = document.createElement('li');
+                            li.className = 'subtle-bg p-3 rounded border accent-border text-gray-800';
+                            li.textContent = `${guest.name} (${guest.guests} guest${guest.guests > 1 ? 's' : ''})`;
+                            guestListUl.appendChild(li);
+                         }
+                    });
+                    // Ensure loading message stays hidden if list is populated
+                    if (loadingP && guestListUl.children.length > 0) loadingP.style.display = 'none';
+                    else if (loadingP) { // Handle case where fetch is successful but filters result in empty list
+                         loadingP.textContent = 'No guests have RSVP\'d \'Yes\' yet!';
+                         loadingP.style.display = 'block';
+                    }
+
+                } else {
+                     if (loadingP) {
+                        loadingP.textContent = 'No guests have RSVP\'d \'Yes\' yet!';
+                        loadingP.style.display = 'block';
+                    }
+                }
+
+            } catch (error) {
+                console.error('Error fetching guest list:', error);
+                 if (loadingP) {
+                    loadingP.textContent = 'Could not load guest list. Please try again later.';
+                    loadingP.style.display = 'block';
+                 }
+                 guestListUl.innerHTML = '';
+            }
+        }
+
+
+        // --- RSVP Form Logic ---
         function toggleGuestsInput() {
             const attendingChoice = document.querySelector('input[name="attending"]:checked');
             if (attendingChoice && attendingChoice.value === 'yes') {
                 guestsInput.disabled = false;
-                guestsInput.closest('div').style.opacity = '1'; // Show parent div
-                 if (guestsInput.value < 1) { // Ensure at least 1 guest if attending
+                guestsInput.required = true;
+                guestsInputContainer.style.opacity = '1';
+                guestsInputContainer.style.maxHeight = '200px';
+                guestsInputContainer.style.overflow = 'visible'; // Ensure visible
+                 if (!guestsInput.value || parseInt(guestsInput.value) < 1) {
                     guestsInput.value = 1;
                  }
             } else {
                 guestsInput.disabled = true;
-                guestsInput.value = 0; // Set to 0 if not attending
-                guestsInput.closest('div').style.opacity = '0.5'; // Dim parent div
+                guestsInput.required = false;
+                guestsInputContainer.style.opacity = '0.5';
+                guestsInputContainer.style.maxHeight = '0';
+                guestsInputContainer.style.overflow = 'hidden';
             }
         }
 
-        // Add event listeners to radio buttons
         attendingRadios.forEach(radio => {
             radio.addEventListener('change', toggleGuestsInput);
         });
-
-        // Initial check in case a value is pre-selected or form is reloaded
-        toggleGuestsInput();
-
+        toggleGuestsInput(); // Initial call
 
         rsvpForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
+            event.preventDefault();
 
-            // Basic validation check
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email'); // Get email input
+            const name = nameInput.value;
+            const email = emailInput.value; // Get email value
             const attending = document.querySelector('input[name="attending"]:checked');
 
-            // Guests validation only if attending='yes'
+
             let guestsAreValid = true;
+             let guestCount = 0;
+
             if (attending && attending.value === 'yes') {
-                 const guests = guestsInput.value;
-                 if (!guests || parseInt(guests) < 1) {
-                     guestsAreValid = false;
-                 }
+                const guestsValue = guestsInput.value;
+                if (!guestsValue || parseInt(guestsValue) < 1) {
+                    guestsAreValid = false;
+                } else {
+                    guestCount = parseInt(guestsValue);
+                }
             }
 
-
+            // Validation check (Added email check)
             if (!name || !email || !attending || !guestsAreValid) {
-                formMessage.textContent = 'Please fill out all required fields correctly.';
+                formMessage.textContent = 'Please fill out all required fields correctly (Name, Email, Attendance).';
                 formMessage.className = 'mb-6 text-center text-red-600 font-medium p-3 bg-red-100 rounded-md border border-red-300';
-                return; // Stop submission
+
+                 // Highlight specific invalid fields
+                 if (!name) nameInput.classList.add('border-red-400'); else nameInput.classList.remove('border-red-400');
+                 if (!email) emailInput.classList.add('border-red-400'); else emailInput.classList.remove('border-red-400');
+                 if (attending && attending.value === 'yes' && !guestsAreValid) {
+                     guestsInput.classList.add('border-red-400');
+                 } else {
+                      guestsInput.classList.remove('border-red-400');
+                 }
+                return;
+            } else {
+                 // Clear validation styles if all are now valid
+                 nameInput.classList.remove('border-red-400');
+                 emailInput.classList.remove('border-red-400');
+                 guestsInput.classList.remove('border-red-400');
             }
 
-            // Get form data
+
             const formData = new FormData(rsvpForm);
-             // Ensure guest count is 0 if not attending before sending
-             if (formData.get('attending') === 'no') {
-                 formData.set('guests', '0');
-             }
+             formData.set('guests', attending.value === 'yes' ? guestCount.toString() : '0');
             const data = Object.fromEntries(formData.entries());
 
+            const submitButton = rsvpForm.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
 
-            // --- Mock Sending Logic ---
-            // Replace this section with your actual fetch call to the Azure Function
-            console.log('Simulating RSVP submission with data:', data);
-            formMessage.textContent = 'Thank you! Your RSVP has been received.';
-            formMessage.className = 'mb-6 text-center text-green-700 font-medium p-3 bg-green-100 rounded-md border border-green-300';
-            rsvpForm.reset(); // Clear the form
-            toggleGuestsInput(); // Reset guest input state
-            // --- End Mock ---
 
-             // --- Real Fetch Call Example (Commented out) ---
-            /*
-            fetch('YOUR_AZURE_FUNCTION_URL', { // <-- Replace with your Azure Function URL
+            if (POST_RSVP_FUNCTION_URL === 'YOUR_POST_RSVP_FUNCTION_URL') {
+                 console.log('Simulating RSVP submission (Azure Function URL not set):', data);
+                 setTimeout(() => {
+                    formMessage.textContent = 'Thank you! Your RSVP has been received (Simulated).';
+                    formMessage.className = 'mb-6 text-center text-green-700 font-medium p-3 bg-green-100 rounded-md border border-green-300';
+                    rsvpForm.reset();
+                    toggleGuestsInput();
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Send RSVP';
+                 }, 1000);
+                 return;
+            }
+
+            fetch(POST_RSVP_FUNCTION_URL, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
             })
             .then(response => {
                 if (!response.ok) {
-                    // Try to get error message from response body if possible
-                    return response.text().then(text => { throw new Error(text || 'Network response was not ok') });
+                    return response.text().then(text => { throw new Error(text || `Network error: ${response.status}`) });
                 }
-                return response.json(); // Or response.text()
+                 const contentType = response.headers.get("content-type");
+                if (contentType && contentType.indexOf("application/json") !== -1) {
+                    return response.json();
+                } else {
+                    return response.text();
+                }
             })
             .then(result => {
                 console.log('Success:', result);
                 formMessage.textContent = 'Thank you! Your RSVP has been received.';
                 formMessage.className = 'mb-6 text-center text-green-700 font-medium p-3 bg-green-100 rounded-md border border-green-300';
                 rsvpForm.reset();
-                toggleGuestsInput(); // Reset guest input state
+                toggleGuestsInput();
+                // **UPDATED**: Check if the confirmed guests tab is active
+                if (document.getElementById('confirmed-guests').classList.contains('active')) {
+                   fetchAndDisplayGuestList();
+                }
             })
             .catch((error) => {
                 console.error('Error:', error);
-                formMessage.textContent = `Sorry, there was an error: ${error.message}. Please try again or contact us.`;
+                formMessage.textContent = `Sorry, there was an error submitting your RSVP: ${error.message}. Please try again or contact us directly.`;
                 formMessage.className = 'mb-6 text-center text-red-600 font-medium p-3 bg-red-100 rounded-md border border-red-300';
+            })
+            .finally(() => {
+                 submitButton.disabled = false;
+                 submitButton.textContent = 'Send RSVP';
             });
-            */
         });
+
+        // --- Initial Setup ---
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        // Set the default active tab (Venue)
+        document.getElementById('venue').classList.add('active');
+
+
     </script>
 
 </body>
